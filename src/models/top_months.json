@@ -1,0 +1,53 @@
+{
+      "title": {
+        "text": "Total time streamed by months",
+        "subtitle": "(in hours)"
+      },
+      "data": [
+        {
+          "name": "table",
+          "url": "api/top_months.json"
+        }
+      ],
+  
+    "scales": [
+      {
+        "name": "xscale",
+        "type": "band",
+        "domain": {"data": "table", "field": "id"},
+        "range": "width",
+        "padding": 0.05,
+        "round": true
+      },
+      {
+        "name": "yscale",
+        "domain": {"data": "table", "field": "hrs"},
+        "nice": true,
+        "range": "height"
+      }
+    ],
+  
+    "axes": [
+      { "orient": "bottom", "scale": "xscale", "title": "Month of the year" },
+      { "orient": "left", "scale": "yscale", "title": "Duration streamed (h)" }
+    ],
+  
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data":"table"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "xscale", "field": "id"},
+            "width": {"scale": "xscale", "band": 1},
+            "y": {"scale": "yscale", "field": "hrs"},
+            "y2": {"scale": "yscale", "value": 0},
+            "fill": {"value": "#1DB954"},
+            "stroke": {"value": "#327852"},
+            "strokeWidth": {"value": 2}
+          }
+        }
+      }
+    ]
+  }
+  

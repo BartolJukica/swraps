@@ -1,0 +1,33 @@
+{
+  "name": "spotifyrewrapped",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cd src && node app.js"    
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "canvas": "^2.11.2",
+    "dotenv": "^10.0.0",
+    "json-concat": "^0.0.1",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
+    "node-canvas": "^2.7.0",
+    "randomstring": "^1.2.1",
+    "sharp": "^0.28.3",
+    "vega": "^5.21.0",
+    "vega-lite": "^5.2.0",
+    "xml2js": "^0.4.23"
+  }
+}

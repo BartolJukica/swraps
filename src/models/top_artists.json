@@ -1,0 +1,56 @@
+{
+  "title": {
+    "text": "Top artists streamed",
+    "subtitle": "(in hours)"
+  },
+  "data": [
+    {
+      "name": "table",
+      "url": "api/top_artists.json"
+    }
+  ],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "linear",
+      "domain": {"data": "table", "field": "hrs"},
+      "range": "width",
+      "nice": true
+    },
+    {
+      "name": "yscale",
+      "type": "band",
+      "domain": {"data": "table", "field": "id"},
+      "range": "height",
+      "padding": 0.20
+    }
+  ],
+  "axes": [
+    {
+      "orient": "bottom",
+      "scale": "xscale",
+      "title": "Duration streamed (h)"
+    },
+    {
+      "orient": "left",
+      "scale": "yscale"
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data":"table"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "value": "0"},
+          "x2": {"scale": "xscale", "field": "hrs"},
+          "y": {"scale": "yscale", "field": "id"},
+          "height": {"scale": "yscale", "band": 1},
+          "fill": {"value": "#1DB954"},
+          "stroke": {"value": "#327852"},
+          "strokeWidth": {"value": 1.8}
+        }
+      }
+    }
+  ]
+}

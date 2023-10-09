@@ -1,0 +1,77 @@
+{
+  "title": {
+    "text": "Total time streamed by weekdays",
+    "subtitle": "(in hours)"
+  },
+  "data": [
+    {
+      "name": "table",
+      "url": "api/top_hours_daily.json",
+      "transform": [
+        {
+          "type": "stack",
+          "groupby": ["x"],
+          "sort": {"field": "c"},
+          "field": "y"
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "range": "width",
+      "padding": 0.2,
+      "domain": {"data": "table", "field": "x"}
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "range": "height",
+      "nice": true, "zero": true,
+      "domain": {"data": "table", "field": "y1"}
+    },
+    {
+      "name": "color",
+      "type": "ordinal",      
+      "range": ["#FF5776", "#E4AE1F", "#0EA6B3", "#2377BA"],
+      "domain": {"data": "table", "field": "c"}
+    },
+    {
+      "name": "legend_color",
+      "type": "ordinal",
+      "domain": ["Night (22 to 5)", "Morning (6 to 12)", "Afternoon (13 to 17)", "Evening (18 to 21)"],
+      "range": ["#2377BA", "#0EA6B3", "#E4AE1F", "#FF5776"]
+    }
+  ],
+  "axes": [
+    {"orient": "bottom", "scale": "x", "title": "Day of the week", "zindex": 1},
+    {"orient": "left", "scale": "y", "title": "Duration streamed (h)", "zindex": 1}
+  ],
+    "legends": [
+    {
+      "orient": "top-left",
+      "fill": "legend_color",
+      "labelFontSize": 30,
+      "offset": 20,
+      "zindex": 1
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "table"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "x", "field": "x"},
+          "width": {"scale": "x", "band": 1, "offset": -1},
+          "y": {"scale": "y", "field": "y0"},
+          "y2": {"scale": "y", "field": "y1"},
+          "fill": {"scale": "color", "field": "c"}
+        }
+      }
+    }
+  ]
+}

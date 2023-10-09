@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "width": 1440,
+    "height": 760,    
+    "autosize": "fit",
+    "config": {
+        "axis": {
+            "domainColor": "white",
+            "labelFont": "Montserrat",
+            "labelFontWeight": "regular",
+            "labelColor": "white",
+            "labelPadding": 10,
+            "labelFontSize": 25,
+            "labelLimit": 0,
+            "tickWidth": 1.5,
+            "tickColor": "white",
+            "titleAlign": "center",
+            "titleColor": "white",
+            "titleFont": "Montserrat",
+            "titleFontSize": 20,
+            "titleFontWeight": "bold",
+            "titlePadding": 20,
+            "zindex": 1
+        },
+        "group": {
+            "stroke": "white",
+            "strokeWidth": 2
+        },
+        "title": {
+            "align": "center",
+            "anchor": "middle",
+            "color": "white",
+            "font": "Montserrat",
+            "fontWeight": "bold",
+            "fontSize": 35,
+            "subtitleFont": "Montserrat",
+            "subtitleColor": "white",
+            "subtitleFontSize": 25,
+            "subtitleFontWeight": "bold"
+          },
+          "legend": {
+            "fillColor": "#19141480",            
+            "labelFont": "Montserrat",
+            "labelFontWeight": "regular",
+            "labelColor": "white",            
+            "labelLimit": 0,
+            "padding": 10,
+            "strokeColor": "white",
+            "strokeWidth": 1,
+            "shape": "rect"
+          }
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "title": {
+      "text": "Total time streamed by months",
+      "subtitle": "(in hours)"
+    },
+    "data": [
+      {
+        "name": "table",
+        "url": "api/top_weeks.json"
+      }
+    ],
+    "scales": [
+      {
+        "name": "x",
+        "type": "point",
+        "range": "width",
+        "domain": {"data": "table", "field": "x"}      
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "range": "height",
+        "nice": true,
+        "zero": true,
+        "domain": {"data": "table", "field": "y"}
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "range": "category",
+        "domain": {"data": "table", "field": "c"}
+      },
+      {
+        "name": "xLabels",
+        "type": "ordinal",
+        "domain": [1, 5, 10, 14, 18, 23, 27, 31, 36, 40, 44, 49],
+        "range": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+      },
+      {
+        "name": "legend_color",
+        "type": "ordinal",
+        "range": "category",
+        "domain": {"data": "table", "field": "a"}
+      }
+    ],
+  
+    "axes": [
+      {
+        "orient": "bottom",
+        "scale": "x",        
+        "encode": {
+          "labels": {"update": { "text": {"scale": "xLabels", "field": "value"}}}
+        }
+      },
+      {"orient": "left", "scale": "y", "title": "Duration streamed (h)"}
+    ],
+    "legends": [
+      {
+        "orient": "top-left",
+        "fill": "legend_color",
+        "labelFontSize": 15,
+        "offset": 20,
+        "zindex": 1
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "group",
+        "from": {
+          "facet": {
+            "name": "series",
+            "data": "table",
+            "groupby": "c"
+          }
+        },
+        "marks": [
+          {
+            "type": "line",
+            "from": {"data": "series"},
+            "encode": {
+              "enter": {
+                "x": {"scale": "x", "field": "x"},
+                "y": {"scale": "y", "field": "y"},
+                "stroke": {"scale": "color", "field": "c"},
+                "strokeWidth": {"value": 2}
+              },
+              "update": {
+                "interpolate": {"value": "monotone"},
+                "strokeOpacity": {"value": 1}
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
