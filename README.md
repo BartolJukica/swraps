@@ -1,5 +1,5 @@
 <a name="readme-top"></a>
-<img alt="Swraps logo" src="https://github.com/BartolJukica/swraps/assets/media/swraps_logo.png" />
+<img alt="Swraps logo" src="/assets/media/swraps_logo.png" />
 
 <div align="center">
   
@@ -18,7 +18,7 @@
   </summary>
 
 <div align="center">
-  <img src="https://github.com/BartolJukica/swraps/assets/media/example_result.png"/>
+  <img src="/assets/media/example_result.png"/>
 </div>
 </details>
 
