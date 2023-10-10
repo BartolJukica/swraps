@@ -36,14 +36,14 @@
     {
       "name": "color",
       "type": "ordinal",      
-      "range": ["#FF5776", "#E4AE1F", "#0EA6B3", "#2377BA"],
+      "range": ["#FF2F62", "#FF82A1", "#FFACC0", "#FFD5E0"],
       "domain": {"data": "table", "field": "c"}
     },
     {
       "name": "legend_color",
       "type": "ordinal",
       "domain": ["Night (22 to 5)", "Morning (6 to 12)", "Afternoon (13 to 17)", "Evening (18 to 21)"],
-      "range": ["#2377BA", "#0EA6B3", "#E4AE1F", "#FF5776"]
+      "range": ["#FFD5E0", "#FFACC0", "#FF82A1", "#FF2F62"]
     }
   ],
   "axes": [

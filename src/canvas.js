@@ -10,7 +10,7 @@ registerFont('./fonts/Montserrat-Bold.ttf', { family: 'Montserrat', weight: 'bol
 const canvas = createCanvas(1500, 1825)
 const ctx = canvas.getContext('2d')
 const { height, width } = canvas
-const lineHeight = 20
+const lineHeight = 25
 
 const dataYear = parseInt(process.argv[2]) || new Date().getFullYear()
 
@@ -53,16 +53,17 @@ function init () {
   ctx.fillStyle = '#fff'
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
-  ctx.fillText(`Spotify Rewrapped ${dataYear}`, width / 2, 87.5 - lineHeight)
+  ctx.fillText(`Your Streaming History`, width / 2, 87.5 - 17.5)
   ctx.font = '25px Montserrat'
-  ctx.fillText(`(from 01-01-${dataYear} to 31-12-${dataYear})`, width / 2, 87.5 + lineHeight)
+  ctx.fillText(`01-01-${dataYear} to 31-12-${dataYear}`, width / 2, 87.5 + lineHeight)
+  ctx.fillText(`Created with Swraps`, width / 2, 87.5 - lineHeight * 2)
 
   // Add footer texts
   ctx.fillStyle = '#535353'
   ctx.fillText('This is not affiliated with Spotify AB or any of its partners in any way.', width / 2, 1737.5 - lineHeight)
   ctx.font = '20px Montserrat'
   ctx.fillStyle = '#fff'
-  ctx.fillText('github.com/BartolJukica', width / 2, 1737.5 + lineHeight)
+  ctx.fillText('github.com/BartolJukica/Swraps', width / 2, 1737.5 + lineHeight)
 
   // Load images and draw them on the canvas
   const imageFilenames = ['top_artists.png', 'top_months.png', 'top_hours.png', 'top_hours_daily.png', 'top_weeks.png']

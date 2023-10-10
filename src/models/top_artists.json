@@ -46,8 +46,8 @@
           "x2": {"scale": "xscale", "field": "hrs"},
           "y": {"scale": "yscale", "field": "id"},
           "height": {"scale": "yscale", "band": 1},
-          "fill": {"value": "#1DB954"},
-          "stroke": {"value": "#327852"},
+          "fill": {"value": "#FF2F62"},
+          "stroke": {"value": "#b32145"},
           "strokeWidth": {"value": 1.8}
         }
       }

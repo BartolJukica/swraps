@@ -42,8 +42,8 @@
             "width": {"scale": "xscale", "band": 1},
             "y": {"scale": "yscale", "field": "hrs"},
             "y2": {"scale": "yscale", "value": 0},
-            "fill": {"value": "#1DB954"},
-            "stroke": {"value": "#327852"},
+            "fill": {"value": "#FF2F62"},
+            "stroke": {"value": "#b32145"},
             "strokeWidth": {"value": 2}
           }
         }
