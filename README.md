@@ -1,5 +1,5 @@
 <a name="readme-top"></a>
-<img alt="Swraps logo" src="https://github.com/BartolJukica/swraps/assets/54990671/2cfc297a-4e6b-4b83-8322-ef2f0c943409.png" width="" />
+<img alt="Swraps logo" src="https://github.com/BartolJukica/swraps/assets/media/swraps_logo.png" />
 
 <div align="center">
   
@@ -18,7 +18,7 @@
   </summary>
 
 <div align="center">
-  <img src="https://github.com/BartolJukica/swraps/assets/54990671/52dd0ed5-ea4c-4826-af79-ca4271050a40.png"/>
+  <img src="https://github.com/BartolJukica/swraps/assets/media/example_result.png"/>
 </div>
 </details>
 
