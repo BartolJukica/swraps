@@ -29,7 +29,12 @@ function generate (filename) {
   view.toCanvas()
     .then(canvas => {
       const buffer = canvas.toBuffer('image/png')
-      fs.writeFileSync(`../export/media/${filename}.png`, buffer)
+
+      fs.mkdir('../export/media', { recursive: true }, function (err) {
+        if (err) return console.error(err)
+
+        fs.writeFileSync(`../export/media/${filename}.png`, buffer)
+      })
     })
     .catch(err => {
       console.error(`Error generating visualization for ${filename}:`, err)
