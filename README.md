@@ -1,11 +1,15 @@
 <a name="readme-top"></a>
-<img alt="Swraps logo" src="https://github.com/BartolJukica/swraps/assets/media/swraps_logo.png" />
+<img alt="Swraps logo" src="/assets/media/swraps_logo.png" />
 
 <div align="center">
   
-  [![Licence](https://img.shields.io/github/license/bartoljukica/swraps?style=for-the-badge)](./LICENSE)
+  [![License](https://img.shields.io/badge/LICENSE-MIT-brightgreen?style=for-the-badge)](./LICENSE.md)
   
-  ![image](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+  [![NodeJS](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en/about)
+  [![Vega](https://img.shields.io/badge/Vega-%232450B2?style=for-the-badge&logo=vega&labelColor=%232450B2)](https://vega.github.io)
+  [![Static Badge](https://img.shields.io/badge/CANVAS-%233298CB?style=for-the-badge&labelColor=%232450B2)](https://www.npmjs.com/package/canvas)
+
+
 </div>
 
 ## Introduction
@@ -18,7 +22,7 @@
   </summary>
 
 <div align="center">
-  <img src="https://github.com/BartolJukica/swraps/assets/media/example_result.png"/>
+  <img src="/assets/media/example_result.png"/>
 </div>
 </details>
 
