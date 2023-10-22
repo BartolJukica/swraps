@@ -52,10 +52,6 @@
   - [ ] Select yearly period from provided data
   - [ ] Interactive graphs?
 
-### Usage requirement
-- [ ] Appropriate usage instructions
-- [ ] Steps to acquire Streaming History from Spotify
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Installation & Setup
@@ -63,6 +59,11 @@
 ### Prerequisites
 - Node.js v18+
 - NPM v9+
+- [Spotfiy Streaming History](https://github.com/BartolJukica/swraps/wiki#spotify-streaming-history)
+- node-canvas
+  - [Windows](https://github.com/Automattic/node-canvas/wiki/Installation%3A-Windows)
+  - [Ubuntu/Debian](https://github.com/Automattic/node-canvas/wiki/Installation%3A-Ubuntu-and-other-Debian-based-systems)
+  - [Other](https://github.com/Automattic/node-canvas/wiki#installation-guides)
 
 ### Installation Steps
 1. Clone the repository:
@@ -80,7 +81,14 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
-TBD
+To run the app, run the following
+```sh
+npm run start
+```
+If you wish to choose a specific year of data from your streaming history, run the following
+```sh
+npm run start -- 2022
+```
 
 ## Contribution
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
