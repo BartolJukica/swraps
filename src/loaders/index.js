@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 import moment from 'moment'
 import logger from '../utils/logger.js'
 import canvas from '../canvas.js'
@@ -12,8 +13,23 @@ import {
 import graph from '../services/generate_graph.js'
 
 const dataYear = parseInt(process.argv[2]) || new Date().getFullYear()
-const rawdata = fs.readFileSync('./api/spotify/StreamingHistory.json')
-const data = Object.values(JSON.parse(rawdata)).filter(item => moment(item.endTime).year() === dataYear)
+
+async function combineJSONFiles (directory) {
+  // Read the directory for files with the naming pattern
+  const files = await fs.promises.readdir(directory)
+  const jsonFiles = files.filter(file => /StreamingHistory\d+\.json/.test(file))
+
+  let combinedData = []
+
+  // Read each file and parse the JSON content
+  for (const file of jsonFiles) {
+    const content = await fs.promises.readFile(path.join(directory, file), 'utf-8')
+    const parsedData = JSON.parse(content)
+    combinedData = combinedData.concat(parsedData)
+  }
+
+  return combinedData
+}
 
 /**
  * Creates and writes a JSON file with the provided data.
@@ -30,7 +46,11 @@ function createJSON (data, filename, limit) {
 /**
  * Initializes the process of generating and saving various types of data and graphs.
  */
-function init () {
+async function init () {
+  let data = []
+  data = await combineJSONFiles('./api/spotify/')
+  data = Object.values(data).filter(item => moment(item.endTime).year() === dataYear)
+
   if (data.length <= 0) return logger.error('Data object is empty.')
 
   const datasets = [
