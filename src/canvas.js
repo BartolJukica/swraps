@@ -3,8 +3,8 @@ import { registerFont, createCanvas, loadImage } from 'canvas'
 import fs from 'fs'
 
 // Register fonts
-registerFont('./fonts/Montserrat-Regular.ttf', { family: 'Montserrat', weight: 'regular' })
-registerFont('./fonts/Montserrat-Bold.ttf', { family: 'Montserrat', weight: 'bold' })
+registerFont('./fonts/Montserrat-Regular.ttf', { family: 'Montserrat', weight: 'Regular' })
+registerFont('./fonts/Montserrat-Bold.ttf', { family: 'Montserrat', weight: 'Bold' })
 
 // Canvas setup
 const canvas = createCanvas(1500, 1825)
