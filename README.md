@@ -44,7 +44,6 @@
 
 ### Quality-of-life
 - [ ] Replace hard-coded pixel values for text alignment
-- [ ] Handle multi-part StreamingHistory JSONs
 
 ### UI / UX
 - [ ] Switch from CLI to a basic GUI
