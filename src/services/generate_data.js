@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { partOfDay, msToHours, truncateString } from '../utils/index.js'
+import { partOfDay, msToHours, truncateString, getArtistName, getEndTime, getMillisecondsPlayed } from '../utils/index.js'
 
 /**
  * Updates an array by adding new items or updating existing items based on their 'id'.
@@ -31,8 +31,8 @@ function addOrUpdate (array) {
  */
 function topArtistsByHours (data) {
   const input = data.map(item => ({
-    id: truncateString(item.artistName, 17),
-    ms: item.msPlayed
+    id: truncateString(getArtistName(item), 17),
+    ms: getMillisecondsPlayed(item)
   }))
 
   const filtered = addOrUpdate(input)
@@ -48,11 +48,11 @@ function topArtistsByHours (data) {
  * @returns {Array} Aggregated hours streamed by hour.
  */
 function topHoursStreamed (data, day) {
-  const modifiedData = day ? data.filter(item => moment(item.endTime).isoWeekday() === day) : data
+  const modifiedData = day ? data.filter(item => moment(getEndTime(item)).isoWeekday() === day) : data
 
   const input = modifiedData.map(item => ({
-    id: moment(item.endTime).hour(),
-    ms: item.msPlayed
+    id: moment(getEndTime(item)).hour(),
+    ms: getMillisecondsPlayed(item)
   }))
 
   // Add missing hours with zero streaming time
@@ -88,8 +88,8 @@ function topHoursStreamedByDay (data) {
  */
 function topMonthsStreamed (data) {
   const input = data.map(item => ({
-    id: moment(item.endTime).month(),
-    ms: item.msPlayed
+    id: moment(getEndTime(item)).month(),
+    ms: getMillisecondsPlayed(item)
   }))
 
   const filtered = addOrUpdate(input)
@@ -128,12 +128,12 @@ function topHoursStreamedMonthly (data) {
  * @returns {Array} Aggregated weekly streaming hours for the artist.
  */
 function topHoursStreamedWeekly (data, artist) {
-  const modifiedData = data.filter(item => item.artistName === artist)
+  const modifiedData = data.filter(item => getArtistName(item) === artist)
 
   const input = modifiedData.map(item => ({
-    id: moment(item.endTime).isoWeek(),
-    a: item.artistName,
-    ms: item.msPlayed
+    id: moment(getEndTime(item)).isoWeek(),
+    a: getArtistName(item),
+    ms: getMillisecondsPlayed(item)
   }))
 
   input.sort((a, b) => a.id - b.id)

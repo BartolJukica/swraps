@@ -43,7 +43,7 @@ function getImageURL (url) {
 /**
  * Initializes the infographic generation process.
  */
-function init () {
+function init (dataTimeFrame) {
   // Set background color
   ctx.fillStyle = '#191414'
   ctx.fillRect(0, 0, width, height)
@@ -55,7 +55,7 @@ function init () {
   ctx.textBaseline = 'middle'
   ctx.fillText(`Your Streaming History`, width / 2, 87.5 - 17.5)
   ctx.font = '25px Montserrat'
-  ctx.fillText(`01-01-${dataYear} to 31-12-${dataYear}`, width / 2, 87.5 + lineHeight)
+  ctx.fillText(`${dataTimeFrame.start} to ${dataTimeFrame.end}`, width / 2, 87.5 + lineHeight)
   ctx.fillText(`Created with Swraps`, width / 2, 87.5 - lineHeight * 2)
 
   // Add footer texts

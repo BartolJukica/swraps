@@ -17,6 +17,7 @@ function sum (array) {
  * @returns {string} Truncated string.
  */
 function truncateString (str, num) {
+  if (str === null) return
   return str.length <= num ? str : str.slice(0, num) + '...'
 }
 
@@ -55,4 +56,16 @@ function partOfDay (array, i) {
   }))
 }
 
-export { sum, truncateString, msToHours, partOfDay }
+function getMillisecondsPlayed (item) {
+  return item.msPlayed || item.ms_played
+}
+
+function getEndTime (item) {
+  return item.endTime || item.ts
+}
+
+function getArtistName (item) {
+  return item.artistName || item.master_metadata_album_artist_name
+}
+
+export { sum, truncateString, msToHours, getMillisecondsPlayed, getArtistName, getEndTime, partOfDay }

@@ -12,7 +12,7 @@ import {
 } from '../services/generate_data.js'
 import graph from '../services/generate_graph.js'
 
-const dataYear = parseInt(process.argv[2]) || new Date().getFullYear()
+const dataYear = process.argv[2] || new Date().getFullYear()
 
 async function combineJSONFiles (directory) {
   // Read the directory for files with the naming pattern
@@ -49,7 +49,17 @@ function createJSON (data, filename, limit) {
 async function init () {
   let data = []
   data = await combineJSONFiles('./api/spotify/')
-  data = Object.values(data).filter(item => moment(item.endTime).year() === dataYear)
+
+  if (dataYear !== 'all') data = Object.values(data).filter(item => moment(item.endTime || item.ts).year() === parseInt(dataYear))
+
+  const sortedData = data.sort(function (a, b) {
+    return new Date(b.date) - new Date(a.date)
+  })
+
+  const dataTimeFrame = {
+    start: moment(sortedData[0].ts).format('DD-MM-YYYY'),
+    end: moment(sortedData[sortedData.length - 1].ts).format('DD-MM-YYYY')
+  }
 
   if (data.length <= 0) return logger.error('Data object is empty.')
 
@@ -69,7 +79,7 @@ async function init () {
 
   // Initialize the canvas after a delay to ensure all data is processed
   setTimeout(() => {
-    canvas.init()
+    canvas.init(dataTimeFrame)
   }, 3000)
 }
 
